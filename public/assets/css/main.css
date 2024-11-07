@@ -129,20 +129,26 @@ input:focus::-moz-placeholder {
 
 a {
   color: #088178;
+  /* color: #dd1010 !important; */
+
 }
 
 a:hover {
   color: #046963;
+  /* color: #dd1010 !important; */
+
 }
 
 /*--- Common Classes---------------------*/
 ::-moz-selection {
-  background: #088178;
+  /* background: #088178; */
+
   /* WebKit/Blink Browsers */
   color: #fff;
 }
 ::selection {
   background: #088178;
+  /* background: #dd1010; */
   /* WebKit/Blink Browsers */
   color: #fff;
 }
