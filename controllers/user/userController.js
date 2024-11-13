@@ -14,8 +14,8 @@ let userData
 const loadHomePage=async(req,res)=>{
     try{
         const userData = req.session.user;
-        const Products=await Product.aggregate([
-            {$match:{isBlocked:false}},
+        const loadProData=await Product.aggregate([
+            {$match:{is_blocked:false}},
             {
                 $lookup:{
                     from:"categories",
@@ -28,7 +28,7 @@ const loadHomePage=async(req,res)=>{
             }
         ])
         const category=await Category.find({isListed:true}).lean()
-            res.render("user/home",{userData})
+            res.render("user/home",{category,loadProData,userData})
         }
     catch(error){
         console.log(error)
@@ -263,4 +263,37 @@ const doLogout=async(req,res)=>{
     }
 }
 
-module.exports={loadHomePage,pageNotFound,loadSignUp,loadLogIn,doSignUp,getOtp,submitOtp,resendOtp,googleCallback,doLogin,userLogin,doLogout}
+const productDetails=async(req,res)=>{
+    try {
+        
+        const proId=req.params.id
+        console.log(proId)
+        const proData=await Product.findById(proId).lean()
+        console.log(proData)
+        let outOfStock
+        if(proData.stock===0){
+            outOfStock=true
+        }
+        if(userData){
+            res.render("user/productview",{proData,outOfStock})
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+module.exports={
+    loadHomePage,
+    pageNotFound,
+    loadSignUp,
+    loadLogIn,
+    doSignUp,
+    getOtp,
+    submitOtp,
+    resendOtp,
+    googleCallback,
+    doLogin,
+    userLogin,
+    doLogout,
+    productDetails
+
+}

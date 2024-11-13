@@ -31,5 +31,7 @@ router.get("/resend_otp",isLogout,userController.resendOtp)
 router.get('/auth/google',  passport.authenticate('google', { scope: ['email', 'profile'] }))
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), userController.googleCallback)
 
+//product detail page
+router.get("/productDetails/:id",userController.productDetails)
 
 module.exports=router

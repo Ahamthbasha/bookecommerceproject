@@ -1,6 +1,4 @@
-const ADMIN_EMAIL = "admin@gmail.com"
-const ADMIN_PASSWORD = "123"
-
+const env=require("dotenv").config()
 let adminData
 
 const loadLogin=async(req,res)=>{
@@ -18,8 +16,8 @@ const adminDoLogin = async (req, res) => {
       adminData = {
   
   
-        email: process.env.ADMIN_EMAIL || ADMIN_EMAIL,
-        password: process.env.ADMIN_PASSWORD || ADMIN_PASSWORD
+        email: process.env.ADMIN_EMAIL,
+        password: process.env.ADMIN_PASSWORD 
       };
       let adminEmail = req.body.email;
       let adminPassword = req.body.password;
@@ -33,10 +31,10 @@ const adminDoLogin = async (req, res) => {
           req.session.admin = adminData;
           res.redirect("/admin/home");
         } else {
-          res.render("admin/login", { message: "incorrect email or password", layout: 'loginlayout' });
+          res.render("admin/login");
         }
       } else {
-        res.render("admin/login", { message: "incorrect email or password", layout: 'loginlayout' });
+        res.render("admin/login");
       }
     } catch (error) {
       console.log(error);

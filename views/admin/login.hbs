@@ -1,15 +1,16 @@
 <main>
+
     <button class="nav-link btn btn rounded-pill darkmode m-3 " href="#">
         <i class="material-icons md-nights_stay"></i>
     </button>
 
 
     <section class="content-main mt-80 mb-0">
+
         <div class="card mx-auto card-login">
             <div class="card-body">
                 <h4 class="card-title m-auto mb-4">Login</h4>
-                <div class="error" style="color: red;" id="emailError">{{msg}}</div>
-                <form method="post" action="/admin/login">
+                <form method="post" action="/admin/login" onsubmit="return validateForm()">
                     <div class="mb-3">
                         <input class="form-control" placeholder="Username or email"  id="email" name="email" type="email" required>
                         <div class="error" style="color: red;" id="emailError"></div>
@@ -30,7 +31,7 @@
                         <button type="submit" class="btn btn-primary w-100"> Login </button>
                     </div> <!-- form-group// -->
                 </form>
-                <p class="text-center small text-muted mb-15">BASHA BOOK ADMIN LOGIN</p>
+                <p class="text-center small text-muted mb-15">BASHABOOK ADMIN LOGIN</p>
                 <div class="d-grid gap-3 mb-4">
                 </div>
         </div>
@@ -45,6 +46,10 @@
     </footer>
 </main>
 <script>
+    function validateForm() {
+    return validate_email() && validatePassword();
+}
+
     /**
      * Email validation
      */
@@ -68,11 +73,11 @@
      */
     function validatePassword() {
         var password = document.getElementById('password').value.trim();
-        var passwordPattern = /^.{8,}$/;;
+        var passwordPattern = /^.{3,}$/;;
         var passwordError = document.getElementById('passwordError');
 
         if (!passwordPattern.test(password)) {
-            passwordError.textContent = "Invalid password. Password must be at least 8 characters long and contain at least one letter and one digit.";
+            passwordError.textContent = "Invalid password. Password must be at least 3 characters long and contain at least one letter and one digit.";
             document.getElementById('password').focus();
             return false;
         } else {

@@ -1,73 +1,75 @@
+<style>
+..container {
+  max-width: 1200px; /* Adjust max width to center the grid on wider screens */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.carausel-6-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the cards in the middle */
+  gap: 20px; /* Space between the cards */
+}
+
+.card-1 {
+  width: calc(100% / 3 - 20px); /* Three cards per row on larger screens */
+  max-width: 200px;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  border-radius: 8px; /* Make sure cards have rounded corners too */
+  overflow: hidden; /* Make sure content does not overflow */
+}
+
+.card-1:hover {
+  transform: scale(1.05);
+}
+
+.img-hover-scale {
+  width: 100%;
+  height: 0;
+  padding-top: 100%; /* Creates a 1:1 aspect ratio container for square images */
+  position: relative; /* Keeps the image inside the container */
+  overflow: hidden; /* Ensures any excess image is clipped */
+}
+
+.responsive-img {
+  position: absolute; /* Makes sure the image fills the container completely */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container, without stretching */
+  border-radius: 8px; /* Keeps rounded corners on the image */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .card-1 {
+    width: calc(100% / 2 - 15px); /* Two cards per row on medium screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .card-1 {
+    width: 100%; /* One card per row on small screens */
+  }
+}
 
 
-    <div class="mobile-header-active mobile-header-wrapper-style">
-        <div class="mobile-header-wrapper-inner">
-            <div class="mobile-header-top">
-                <div class="mobile-header-logo">
-                    <a href="index.html"><img src="assets/imgs/theme/logo.png" alt="logo"></a>
-                </div>
-                <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
-                    <button class="close-style search-close">
-                        <i class="icon-top"></i>
-                        <i class="icon-bottom"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="mobile-header-content-area">
-                <div class="mobile-search search-style-3 mobile-header-border">
-                    <form action="#">
-                        <input type="text" placeholder="Search for items…">
-                        <button type="submit"><i class="fi-rs-search"></i></button>
-                    </form>
-                </div>
-                <div class="mobile-menu-wrap mobile-header-border">
-                    
-                    <!-- mobile menu start -->
-                    <nav>
-                        <ul class="mobile-menu">
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="index.html">Home</a>
-                            
-                            </li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop-grid-right.html">shop</a>
-                                
-                            </li>
-                            
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                    <li><a href="#">Spanish</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- mobile menu end -->
-                </div>
-                <div class="mobile-header-info-wrap mobile-header-border">
-                    <div class="single-mobile-header-info mt-30">
-                        <a  href="page-contact.html"> Our location </a>
-                    </div>
-                    <div class="single-mobile-header-info">
-                        <a href="/signup">Log In / Sign Up </a>
-                    </div>
-                    <div class="single-mobile-header-info">
-                        <a href="#">(+01) - 2345 - 6789 </a>
-                    </div>
-                </div>
-                <div class="mobile-social-icon">
-                    <h5 class="mb-15 text-grey-4">Follow Us</h5>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
-                </div>
+</style>
+
+    <main class="main">
+            <div class="page-header breadcrumb-wrap">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/" rel="nofollow">Home</a>
+                {{!-- <span></span> Shop --}}
             </div>
         </div>
     </div>
-    <main class="main">       
-        <section class="home-slider position-relative pt-50">
+    <section class="home-slider position-relative pt-50">
             <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
                 <div class="single-hero-slider single-animation-wrap">
                     <div class="container">
@@ -89,6 +91,8 @@
                         </div>
                     </div>
                 </div>
+                {{!-- banner1 end --}}
+                {{!-- banner2 start --}}
                 <div class="single-hero-slider single-animation-wrap">
                     <div class="container">
                         <div class="row align-items-center slider-animated-1">
@@ -110,9 +114,13 @@
                     </div>
                 </div>
             </div>
+            {{!-- banner2 end --}}
             <div class="slider-arrow hero-slider-1-arrow"></div>
         </section>
-        <section class="featured section-padding position-relative">            
+
+        <div style="height: 30px;"><br><br></div>
+
+                <section class="featured section-padding position-relative">            
             <div class="container">
                 <div class="row">
                     <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
@@ -121,193 +129,130 @@
                             <h4 class="bg-1">Free Shipping</h4>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-2.png" alt="">
-                            <h4 class="bg-3">Online Order</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-3.png" alt="">
-                            <h4 class="bg-2">Save Money</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-4.png" alt="">
-                            <h4 class="bg-4">Promotions</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-5.png" alt="">
-                            <h4 class="bg-5">Happy Sell</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-6.png" alt="">
-                            <h4 class="bg-6">24/7 Support</h4>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
+
+
         <section class="product-tabs section-padding position-relative wow fadeIn animated">
             <div class="bg-square"></div>
             <div class="container">
                 <div class="tab-header">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
+                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Featured</button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        {{!-- <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Popular</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">New added</button>
-                        </li>
+                        </li> --}}
                     </ul>
-                    <a href="#" class="view-more d-none d-md-flex">View More<i class="fi-rs-angle-double-small-right"></i></a>
+                    <a href="/product" class="view-more d-none d-md-flex">View More<i class="fi-rs-angle-double-small-right"></i></a> 
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
+
+                            {{#each loadProData}}
                             <div class="col-lg-3 col-md-4 col-12 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-1-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-1-2.jpg" alt="">
+                                            <a href="/productview?id={{this._id}}">
+                                                <img class="default-img" src="/images/products/{{this.imageUrl.[0]}}" alt="">
+                                                <img class="hover-img" src="/images/products/{{this.imageUrl.[1]}}" alt="">
                                             </a>
                                         </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
+                                        
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">Hot</span>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop-grid-right.html">Self-improvement</a>
+                                            <a >{{this.category.category}}</a>
                                         </div>
-                                        <h2><a href="shop-product-right.html">5AM CLUB</a></h2>
+                                        <h2><a href=""shop-product-right.html"">{{this.name}}</a></h2>
                                         <div class="rating-result" title="90%">
                                             <span>
-                                                <span>30%</span>
+                                                <span>90%</span>
                                             </span>
                                         </div>
                                         <div class="product-price">
-                                            <span>₹238.85 </span>
-                                            <span class="old-price">₹245.8</span>
+                                            <span>₹{{price}}</span>
+                                            <span class="old-price">₹{{price}}</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            {{/each}}
                         </div>
-                        <!-- End product-grid-4 -->
-                    </div>
-                    <!--En tab one (Featured)-->
-                    <div class="tab-pane fade" id="tab-two" role="tabpanel" aria-labelledby="tab-two">
-                        <div class="row product-grid-4">
-                            <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                <div class="product-cart-wrap mb-30">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-9-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-9-1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Story</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">Doctor Dolittle</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>20%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>₹159 </span>
-                                            <span class="old-price">₹200</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <!--End product-grid-4-->
                     </div>
-                    <!--En tab two (Popular)-->
-                    <div class="tab-pane fade" id="tab-three" role="tabpanel" aria-labelledby="tab-three">
-                        <div class="row product-grid-4">
-                            <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                <div class="product-cart-wrap mb-30">
-                                    <div class="product-img-action-wrap">
-                                        <div class="product-img product-img-zoom">
-                                            <a href="shop-product-right.html">
-                                                <img class="default-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
-                                                <img class="hover-img" src="assets/imgs/shop/product-2-1.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-eye"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                        </div>
-                                        <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop-grid-right.html">Self-improvemen</a>
-                                        </div>
-                                        <h2><a href="shop-product-right.html">The compund effect</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>50%</span>
-                                            </span>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>₹200 </span>
-                                            <span class="old-price">₹255.8</span>
-                                        </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End product-grid-4-->
-                    </div>
+                   
                     <!--En tab three (New added)-->
                 </div>
                 <!--End tab-content-->
             </div>
         </section>
-       
+        <section class="banner-2 section-padding pb-0">
+            <div class="container">
+                <div class="banner-img banner-big wow fadeIn animated f-none">
+                    {{!-- <img src="/images/banners/mario1.jpg" alt=""> --}}
+                    <div class="banner-text d-md-block d-none">
+                        <h1 class="fw-600 mb-20">We're on Sale <br>Grab the oppurtunity</h1>
+                        <a href="/product" class="btn">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="popular-categories section-padding mt-15 mb-25">
+            <div class="container wow fadeIn animated"><br>
+                <div class="carausel-6-columns-cover position-relative">
+                    <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-arrows"></div>
+                    <div class="carausel-6-columns" id="carausel-6-columns">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Category Section Start -->
+    <section class="popular-categories section-padding mt-15 mb-25">
+  <div class="container wow fadeIn animated">
+    <h3 class="section-title mb-20"><span>All Categories</span></h3>
+    <div class="carausel-6-columns-cover position-relative">
+      <div
+        class="slider-arrow slider-arrow-2 carausel-6-columns-arrow"
+        id="carausel-6-columns-arrows"
+      ></div>
+      <div class="carausel-6-columns" id="carausel-6-columns">
+        {{#each category}}
+          <div class="card-1">
+            <figure class="img-hover-scale">
+              <a>
+                <img 
+                  src="/images/products/{{imageUrl}}"
+                  alt="hi"
+                  class="responsive-img"
+                />
+              </a>
+            </figure>
+            <h5><a>{{this.category}}</a></h5>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   
+</main>
 
